@@ -28,6 +28,7 @@ RUN apt-get update && apt-get install -y \
     curl \
     jq \
     gosu \
+    sudo \
     tzdata && \
     ln -sf /usr/share/zoneinfo/${TZ} /etc/localtime && \
     echo "${TZ}" > /etc/timezone && \
