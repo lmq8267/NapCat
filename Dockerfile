@@ -40,12 +40,6 @@ RUN apt-get update && apt-get install -y \
 # 设置工作目录
 WORKDIR /app
 
-# 创建必要目录（避免挂载时报错）
-RUN mkdir -p \
-    /app/.config/QQ \
-    /app/napcat/config \
-    /app/napcat/plugins
-
 # 下载并执行安装脚本
 RUN curl -o napcat.sh https://raw.githubusercontent.com/NapNeko/napcat-linux-installer/refs/heads/main/install.sh && \
     bash napcat.sh
