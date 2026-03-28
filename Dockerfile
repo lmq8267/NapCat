@@ -5,12 +5,36 @@ FROM ubuntu:22.04
 ENV DEBIAN_FRONTEND=noninteractive
 ENV TZ=Asia/Shanghai
 
-# 安装依赖 + 设置时区 + 减少镜像体积
-RUN apt-get update && \
-    apt-get install -y tzdata sudo curl jq ca-certificates && \
-    ln -fs /usr/share/zoneinfo/$TZ /etc/localtime && \
+# 安装必要的软件包 + 设置时区 + 清理缓存
+RUN apt-get update && apt-get install -y \
+    libnss3 \
+    libnotify4 \
+    libsecret-1-0 \
+    libgbm1 \
+    xvfb \
+    libasound2 \
+    fonts-wqy-zenhei \
+    gnutls-bin \
+    libglib2.0-dev \
+    libdbus-1-3 \
+    libgtk-3-0 \
+    libxss1 \
+    libxtst6 \
+    libatspi2.0-0 \
+    libx11-xcb1 \
+    ffmpeg \
+    unzip \
+    dbus-user-session \
+    curl \
+    jq \
+    gosu \
+    tzdata && \
+    ln -sf /usr/share/zoneinfo/${TZ} /etc/localtime && \
+    echo "${TZ}" > /etc/timezone && \
     dpkg-reconfigure --frontend noninteractive tzdata && \
-    apt-get clean && rm -rf /var/lib/apt/lists/*
+    apt-get autoremove -y && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # 设置工作目录
 WORKDIR /app
