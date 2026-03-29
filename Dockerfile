@@ -53,5 +53,6 @@ VOLUME ["/app/.config/QQ", "/app/napcat/config", "/app/napcat/plugins"]
 # 暴露端口
 EXPOSE 3000 3001 6099
 
-# 启动命令
-CMD ["bash", "./launcher.sh"]
+# 启动 DBus 并运行 launcher.sh
+CMD mkdir -p /run/dbus && dbus-daemon --system --fork && \
+    bash ./launcher.sh
