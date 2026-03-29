@@ -44,8 +44,7 @@ WORKDIR /app
 RUN curl -o napcat.sh https://raw.githubusercontent.com/NapNeko/napcat-linux-installer/refs/heads/main/install.sh && \
     bash napcat.sh
 
-# 修改 launcher.sh 分辨率
-RUN sed -i 's/1x1x8/1080x760x16/' ./launcher.sh
+RUN sed -i '/^#!\/bin\/bash/a [ -f /run/dbus/pid ] && rm -f /run/dbus/pid' ./launcher.sh
 
 # 声明挂载目录
 VOLUME ["/app/.config/QQ", "/app/napcat/config", "/app/napcat/plugins"]
