@@ -14,8 +14,6 @@ jobs:
     steps:
       - name: 检出代码
         uses: actions/checkout@main
-        with:
-          repository: 'yyhhkya/napcat-docker-non-invasive'
 
       - name: 删除流程记录
         uses: Mattraks/delete-workflow-runs@main
