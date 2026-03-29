@@ -16,7 +16,6 @@ RUN apt-get update && apt-get install -y \
     fonts-wqy-zenhei \
     gnutls-bin \
     libglib2.0-dev \
-    libdbus-1-3 \
     libgtk-3-0 \
     libxss1 \
     libxtst6 \
@@ -24,7 +23,6 @@ RUN apt-get update && apt-get install -y \
     libx11-xcb1 \
     ffmpeg \
     unzip \
-    dbus-user-session \
     curl \
     jq \
     sudo \
