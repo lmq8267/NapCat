@@ -44,7 +44,7 @@ WORKDIR /app
 RUN curl -o napcat.sh https://raw.githubusercontent.com/NapNeko/napcat-linux-installer/refs/heads/main/install.sh && \
     bash napcat.sh
 
-RUN sed -i '/^#!\/bin\/bash/a [ -f /run/dbus/pid ] && rm -f /run/dbus/pid' ./launcher.sh
+RUN sed -i '/^#!\/bin\/bash/a rm -f /tmp/.X1-lock && [ -f /run/dbus/pid ] && rm -f /run/dbus/pid' ./launcher.sh
 
 # 声明挂载目录
 VOLUME ["/app/.config/QQ", "/app/napcat/config", "/app/napcat/plugins"]
