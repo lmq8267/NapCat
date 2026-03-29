@@ -106,7 +106,7 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           body: |
-           > ### ![](https://img.shields.io/badge/%E7%BC%96%E8%AF%91%E6%97%B6%E9%97%B4-${{ env.build_time }}-8267?logo=github&labelColor=%E9%A1%BB)![](https://img.shields.io/github/downloads/${{ github.repository }}/${{ env.tag }}/total?label=%E4%B8%8B%E8%BD%BD%E6%AC%A1%E6%95%B0&logo=github)
+           > ### ![](https://img.shields.io/badge/%E7%BC%96%E8%AF%91%E6%97%B6%E9%97%B4-${{ env.build_time }}-8267?logo=github&labelColor=%E9%A1%BB)![](https://img.shields.io/github/downloads/${{ github.repository }}/${{ env.tag }}/total?label=%E4%B8%8B%E8%BD%BD%E6%AC%A1%E6%95%B0&logo=github)![](https://img.shields.io/docker/pulls/lmq8267/napcat?logo=docker&label=Docker拉取量&link=https://hub.docker.com/r/lmq8267/napcat)![](https://img.shields.io/docker/v/lmq8267/napcat?label=最新版本&link=https://hub.docker.com/r/lmq8267/napcat)![](https://img.shields.io/docker/image-size/lmq8267/napcat/${{ env.tag }}?label=大小&link=https://hub.docker.com/r/lmq8267/napcat)
 
            ${{ env.update }}
            
