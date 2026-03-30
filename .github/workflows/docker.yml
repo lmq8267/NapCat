@@ -2,6 +2,8 @@ name: 打包镜像
 
 on:
   workflow_dispatch:
+  schedule:
+     - cron: '0 0 * * *' # 每天 UTC 00:00（北京时间 08:00）
 
 # 仓库操作权限
 permissions:
